@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoadingActivity">
+
+
+    <TextView
+        android:id="@+id/dyk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Do you know?"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/dyktxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dyk"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="Excercising lorem kjnjdscnvkjxc jsdcnknxc jkdsc jcdnkjdc jdncjks ckndckjjk c"
+        android:textSize="18sp" />
+
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/dykimg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dyktxt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/press_up_gif" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:text="Loading..."
+        android:textSize="25dp"
+        android:layout_alignBottom="@+id/loading"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/loadingtxt"
+        android:textStyle="bold"/>
+
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:progressTint="@color/light_blue"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_alignParentBottom="true"
+        android:progress="30"
+        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/loading"
+        android:layout_marginRight="10dp"
+        />
+
+
+</RelativeLayout>

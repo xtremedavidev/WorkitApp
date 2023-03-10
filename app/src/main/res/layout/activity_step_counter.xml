@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StepCounterActivity">
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:elevation="15dp"
+        android:id="@+id/stepsrel"
+        android:layout_centerInParent="true">
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:background="@drawable/ovalbg"
+            android:gravity="center_horizontal"
+            android:paddingTop="30dp"
+            android:text="STEPS"
+            android:elevation="5dp"
+            android:textColor="@color/black"
+            android:textSize="50dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/step_count_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="25dp"
+            android:elevation="20dp"
+            android:text="0"
+            android:textColor="@color/teal_700"
+            android:textSize="50dp" />
+
+
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/buttonstart"
+        style="@style/ShapeAppearanceOverlay.Material3.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/stepsrel"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="40dp"
+        android:text="Start"
+        android:backgroundTint="@color/dark_blue"
+        android:textSize="30dp" />
+
+
+
+</RelativeLayout>

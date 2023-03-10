@@ -316,7 +316,7 @@ public class dayexerciseList implements Serializable {
         daylist8.add(new exercise("Do 10 press up", "Use both hands to support your body weight and push yourself against the ground", R.drawable.press_up_gif, 120));
         daylist8.add(new exercise("Prepare for next exercise", "", R.drawable.warm_up, 25));
 
-        daylist8.add(new exercise("Do 15 pin", "", R.drawable.pin, 100));
+        daylist8.add(new exercise("Do 15 pin", "", R.drawable.pin, 120));
         daylist8.add(new exercise("Prepare for next exercise", "", R.drawable.warm_up, 25));
 
         daylist8.add(new exercise("Do 15 Diamond press up", "", R.drawable.inward_push_up_gif, 215));

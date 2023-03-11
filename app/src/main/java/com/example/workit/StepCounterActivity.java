@@ -25,6 +25,7 @@ public class StepCounterActivity extends AppCompatActivity implements SensorEven
     private Sensor stepSensor;
     private int stepCount = 0;
     Button start;
+    TextView stepCountTextView;
 
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -32,18 +33,38 @@ public class StepCounterActivity extends AppCompatActivity implements SensorEven
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_step_counter);
+        stepCountTextView = findViewById(R.id.step_count_text_view);
 
         start = findViewById(R.id.buttonstart);
 
 
+        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        stepSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
 
-            start.setOnClickListener(new View.OnClickListener() {
+
+
+
+        start.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    sensorManager.unregisterListener(StepCounterActivity.this);
-                    sensorManager.registerListener(StepCounterActivity.this, stepSensor, SensorManager.SENSOR_DELAY_NORMAL);
+
+                    if (stepCount == 0) {
+                        sensorManager.registerListener(StepCounterActivity.this, stepSensor, SensorManager.SENSOR_DELAY_NORMAL);
+                        Toast.makeText(StepCounterActivity.this, "Step counter started", Toast.LENGTH_SHORT).show();
+                    }else {
+                        sensorManager.unregisterListener(StepCounterActivity.this);
+
+
+                        stepCount = 0;
+                        stepCountTextView.setText("0");
+                        sensorManager.registerListener(StepCounterActivity.this, stepSensor, SensorManager.SENSOR_DELAY_NORMAL);
+
+
+                    }
                 }
             });
+
+
 
 
 
@@ -56,6 +77,34 @@ public class StepCounterActivity extends AppCompatActivity implements SensorEven
         // Register the step sensor listener
         if (stepSensor != null) {
             sensorManager.registerListener(this, stepSensor, SensorManager.SENSOR_DELAY_NORMAL);
+//            if (stepCount != 0){
+//                start.setText("Restart");
+//                start.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        sensorManager.unregisterListener(StepCounterActivity.this);
+//
+//                        stepCountTextView.setText("0");
+//                        sensorManager.registerListener(StepCounterActivity.this, stepSensor, SensorManager.SENSOR_DELAY_NORMAL);
+//
+//                    }
+//                });
+//
+//            }else{
+//                start.setText("Start");
+//                start.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        sensorManager.unregisterListener(StepCounterActivity.this);
+//
+//                        stepCount = 0;
+//                        stepCountTextView.setText("0");
+//
+//
+//                    }
+//                });
+//            }
+
         } else {
 
           android.app.AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -100,19 +149,16 @@ public class StepCounterActivity extends AppCompatActivity implements SensorEven
     public void onSensorChanged(SensorEvent event) {
         if (event.sensor.getType() == Sensor.TYPE_STEP_COUNTER) {
             // Update the step count
+            stepCountTextView = findViewById(R.id.step_count_text_view);
             stepCount = (int) event.values[0];
             start = findViewById(R.id.buttonstart);
 
             // Display the step count on a TextView
-            TextView stepCountTextView = findViewById(R.id.step_count_text_view);
-            stepCountTextView.setText("Step count: " + stepCount);
+            stepCountTextView.setText(String.valueOf(stepCount));
 
 
-            if (stepCount != 0){
-                start.setText("Restart");
-            }else{
-                start.setText("Start");
-            }
+
+
 
         }
     }

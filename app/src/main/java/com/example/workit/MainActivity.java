@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView countdownText, instruction, description, skip;
     private long timeLeftInMilliseconds = 60000; // 60 seconds
+    MediaPlayer mediaPlayer;
+
 
     private GifImageView gifImageView;
     int[] progress = {0};
@@ -129,10 +131,10 @@ public class MainActivity extends AppCompatActivity {
                         handler.postDelayed(() -> {
                             Intent i = new Intent(MainActivity.this, completionActivity.class);
                             SharedPrefManager sharedPrefManager = SharedPrefManager.getInstance(MainActivity.this);
-                            sharedPrefManager.setDayCompleted(position);
+                            sharedPrefManager.setDayCompleted(position + 1);
                             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                             String currentDate = sdf.format(new Date());
-                            sharedPrefManager.setDateCompleted(position, currentDate);
+                            sharedPrefManager.setDateCompleted(position + 1, currentDate);
                             startActivity(i);
                             finish();
                         }, (finalExercises.get(progress[0] - 1).getTime()) * 1000L);
@@ -153,11 +155,11 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
     public void startCountdown(int seconds) {
         final TextView countdownText = findViewById(R.id.timer);
-        MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.beep);
 
-
+        mediaPlayer = MediaPlayer.create(this, R.raw.beep);
         new CountDownTimer(seconds * 1000, 1000) {
             public void onTick(long millisUntilFinished) {
                 long secondsRemaining = millisUntilFinished / 1000;
@@ -169,6 +171,8 @@ public class MainActivity extends AppCompatActivity {
 
                 if (secondsRemaining <= 5) {
                     countdownText.setTextColor(Color.RED);
+
+
                      mediaPlayer.start();
 
                 }else {
@@ -189,6 +193,9 @@ public class MainActivity extends AppCompatActivity {
         super.onBackPressed();
 
         Intent i = new Intent(this, DaysActivity.class);
+        mediaPlayer = MediaPlayer.create(this, R.raw.beep);
+
+        mediaPlayer.stop();
         startActivity(i);
         finish();
     }

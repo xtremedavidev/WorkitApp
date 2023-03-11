@@ -44,13 +44,13 @@ public class dayAdapter extends RecyclerView.Adapter<dayAdapter.ViewHolder>  {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
 
-            String daytxt = String.valueOf((days.get(position)));
+            String daytxt = String.valueOf(days.get(position));
 
             SharedPrefManager sharedPrefManager = SharedPrefManager.getInstance(holder.itemView.getContext());
 
             holder.setDaytxt("Day " + daytxt);
-            holder.setDatecompleted(sharedPrefManager.getDateCompleted(days.get(position)));
-            holder.setiscompleted(sharedPrefManager.isDayCompleted(days.get(position)));
+            holder.setDatecompleted(sharedPrefManager.getDateCompleted(position));
+            holder.setiscompleted(sharedPrefManager.isDayCompleted(position));
 
 
 

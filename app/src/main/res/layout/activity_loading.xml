@@ -13,8 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:text="Do you know?"
-        android:textSize="25dp"
+        android:text="@string/do_you_know"
+        android:textSize="25sp"
         android:textStyle="bold" />
 
     <TextView
@@ -24,38 +24,38 @@
         android:layout_below="@id/dyk"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="20dp"
-        android:gravity="center"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:text="Excercising lorem kjnjdscnvkjxc jsdcnknxc jkdsc jcdnkjdc jdncjks ckndckjjk c"
-        android:textSize="18sp" />
+        android:gravity="center"
+        android:text="@string/dyk_txt"
+        android:textSize="16sp" />
 
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/dykimg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
         android:layout_below="@id/dyktxt"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:src="@drawable/press_up_gif" />
 
 
     <TextView
+        android:id="@+id/loadingtxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_centerHorizontal="true"
-        android:text="Loading..."
-        android:textSize="25dp"
         android:layout_alignBottom="@+id/loading"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
         android:layout_marginBottom="20dp"
-        android:id="@+id/loadingtxt"
-        android:textStyle="bold"/>
+        android:text="@string/loading"
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
     <ProgressBar
         android:layout_width="match_parent"

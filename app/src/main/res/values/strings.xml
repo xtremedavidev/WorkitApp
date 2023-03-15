@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">WorKit</string>
+    <string name="dyk_txt">Exercise can improve your creativity \n Studies have shown that regular exercise can boost creative thinking, problem-solving skills, and overall cognitive function. So if you\'re feeling stuck in a creative rut, try going for a run or hitting the gym to get those creative juices flowing.</string>
+    <string name="do_you_know">Do you know?</string>
+    <string name="loading">Loading...</string>
+    <string name="steps">STEPS</string>
+    <string name="_0">0</string>
+    <string name="start">Start</string>
 </resources>
